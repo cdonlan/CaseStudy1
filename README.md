@@ -15,4 +15,4 @@ Contains a PDF copy of the case study.
 ##Analyze
 Contains the R code used to answer the questions.
 
-A few other notes, the root directory also contains a makefile called run.r, which can be used if you want to run the code outside of the report. Also note, that I had some issues using kniter's read_chunk function, it always uses the path of the actual rmarkdown file. I tried to use setwd, but it would always use the path of the file itself. This is why there is a copy of the analyze.r file in the data folder. 
+A few other notes, the root directory also contains a makefile called run.r, which can be used if you want to run the code outside of the report. Also note, that I had some issues using kniter's read_chunk function, it always uses the path of the actual rmarkdown file. I tried to use setwd, but it would always use the path of the file itself. This is why there is a copy of the analyze.r file in the data folder. The data folder also contains a normal markdown version of the R markdown file. The RMD file was not generating all the chunks.
