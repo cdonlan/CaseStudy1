@@ -23,7 +23,7 @@ Note, the libraris are also loaded in the source files. This ensures the files w
 #Gather Data
 * Rather than writing R code directly in the markdown, I choose to use read_chunk, to read in the R code from another source file. I like read_chunk, as it allows you to bring in only the portion of the code you want.
 
-```{r cache=FALSE}
+```{r cache=TRUE}
 knitr::read_chunk('gather.R')
 ```
 * Download the GDP and Education csv files into the data directory
@@ -123,3 +123,4 @@ GDP
 
 #Summary
 There are a few take always from this analysis. First, how data tidying took a considerable amount of time. I would estimate it took over a little over half the amount of time spent on this project. Second, the amount of ancillary information found in the CSV files was surprising. The GDP data, in particular, had several notes and addendums included in the CSV file. I'm surprised whoever was hosting that data would leave that in there. I would assume anyone using that data would have to remove that information. Third, within the actual data, it was surprising how much of a variances exists in the higher income groups. I believe this is evident, by noticing the upper middle income group in the plot above. Fifth, speaking of the plat, second only the data tidying, a considerable amount of time was spent finding a plot that made sense. If some of the outliers, like the USA, could be removed, it would make the plot much more readable.
+
