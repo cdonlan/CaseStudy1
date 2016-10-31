@@ -1,0 +1,480 @@
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+head(edstats)
+head(edstats)
+str(edstats)
+edstats$CountryCode
+is.na(edstats$CountryCode)
+is.na(edstats[0])
+str(edstats)
+ncol(edstats)
+colname(edstats)
+colnames(edstats)
+for(i in 1:ncol(edstats))
+{
+}
+colnames(edstats[[1]])
+colnames(edstats[[2]])
+colnames(edstats)[[1]]
+for(i in 1:ncol(edstats))
+{
+colnames(edstats)[[i]]
+}
+ncol(edstats)
+for(i in 1:ncol(edstats))
+{
+colnames(edstats)[[i]]
+}
+for(i in 1:ncol(edstats))
+{
+colnames(edstats)[[i]]
+}
+for(i in 1:ncol(edstats)){
+colnames(edstats)[[i]]
+}
+for(i in 1:ncol(edstats)){
+colnames(edstats)[[i]]
+}
+for(i in 1:10){
+1
+}
+1
+for(i in 1:10){
+print(1)
+}
+for(i in 1:ncol(edstats)){
+print("ffo")
+}
+for(i in 1:ncol(edstats)){
+colnames(edstats)[[i]]
+}
+for(i in 1:ncol(edstats)){
+print(colnames(edstats)[[i]])
+}
+is.na(edstats[1])
+is.na(edstats[2])
+is.na(edstats[0])
+is.na(edstats[1])
+is.na(edstats[0])
+is.na(edstats[4])
+is.na(edstats[5])
+for(i in 1:ncol(edstats)){
+print(colnames(edstats)[[i]])
+checkForNA <= is.na(edstats[i])
+}
+for(i in 1:ncol(edstats)){
+print(colnames(edstats)[[i]])
+checkForNA <- is.na(edstats[i])
+}
+for(i in 1:ncol(edstats)){
+print(colnames(edstats)[[i]])
+checkForNA <- is.na(edstats[i])
+if(any(checkForNA =='TRUE'))
+{
+print("contains true")
+}
+}
+for(i in 1:ncol(edstats)){
+#print(colnames(edstats)[[i]])
+checkForNA <- is.na(edstats[i])
+if(any(checkForNA =='TRUE'))
+{
+print("contains true")
+}
+}
+for(i in 1:ncol(edstats)){
+#print(colnames(edstats)[[i]])
+checkForNA <- is.na(edstats[i])
+if(any(checkForNA =='TRUE'))
+{
+print(colnames(edstats)[[i]])
+print("contains true")
+}
+}
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+#replace empty string with NA
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+#str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small$GDP
+class(mergeddata.small$GDP)
+#Question1
+length(mergeddata$CountryCode)
+#Quesion2
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+library(plyr)
+#load data from CSV files
+GDP <- read.csv("data/getdata_data_GDP.csv")
+#remove header and footer at the bottom of page
+GDP.NHF<- GDP[5:235,]
+#Update column names
+GDP.NHF.CN <-rename(GDP.NHF, c("X"="CountryCode","Gross.domestic.product.2012" ="Ranking"
+,"X.2"="Country","X.3"="GDP","X.4" = "Category"))
+#Replace empty strings with NA
+GDP.NHF.CN[GDP.NHF.CN==""] <- NA
+#TODO drop columns
+columnsToKeep <- c("CountryCode","Ranking","Country","GDP","Category")
+GDP.NHF.CN.DC <- GDP.NHF.CN[columnsToKeep]
+head(GDP.NHF.CN.DC)
+tail(GDP.NHF.CN.DC)
+#remove rows that do not have rankings
+GDP.Final <- GDP.NHF.CN.DC[!(is.na(GDP.NHF.CN.DC$Ranking)), ]
+tail(GDP.Final)
+#Load Edstats data
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+#replace empty string with NA
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+#str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small$GDP
+class(mergeddata.small$GDP)
+#Question1
+length(mergeddata$CountryCode)
+#Quesion2
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+#Question3
+library(plyr)
+#load data from CSV files
+GDP <- read.csv("data/getdata_data_GDP.csv")
+#remove header and footer at the bottom of page
+GDP.NHF<- GDP[5:235,]
+#Update column names
+GDP.NHF.CN <-rename(GDP.NHF, c("X"="CountryCode","Gross.domestic.product.2012" ="Ranking"
+,"X.2"="Country","X.3"="GDP","X.4" = "Category"))
+#Replace empty strings with NA
+GDP.NHF.CN[GDP.NHF.CN==""] <- NA
+#TODO drop columns
+columnsToKeep <- c("CountryCode","Ranking","Country","GDP","Category")
+GDP.NHF.CN.DC <- GDP.NHF.CN[columnsToKeep]
+head(GDP.NHF.CN.DC)
+tail(GDP.NHF.CN.DC)
+#remove rows that do not have rankings
+GDP.Final <- GDP.NHF.CN.DC[!(is.na(GDP.NHF.CN.DC$Ranking)), ]
+tail(GDP.Final)
+#Load Edstats data
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+#replace empty string with NA
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+#str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small$GDP
+class(mergeddata.small$GDP)
+#Question1
+length(mergeddata$CountryCode)
+#Quesion2
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+#Question3
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+edstats[edstats == ""] <- NA
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+mergeddata
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+mergeddata.small <- mergeddata[mergedcolumns]
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+mergedcolumns <- c("CountryCode","Ranking","GDP")
+mergeddata.small <- mergeddata[mergedcolumns]
+str(mergeddata)
+str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+mergeddata.small$Long.Name <- as.character(levels(mergeddata.small$Long.Name))[mergeddata.small$Long.Name]
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name")
+mergeddata.small <- mergeddata[mergedcolumns]
+#rename long.name to LongName
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName"))
+str(mergeddata.small)
+str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name","Income.Group")
+mergeddata.small <- mergeddata[mergedcolumns]
+#rename long.name to LongName
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName","Income.Group"="IncomeGroup"))
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+#replace empty string with NA
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name","Income.Group")
+mergeddata.small <- mergeddata[mergedcolumns]
+#rename long.name to LongName
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName","Income.Group"="IncomeGroup"))
+incomeAgg <-aggregate(mergeddata.small.sorted, by=list(IncomeGroup), FUN=mean, na.rm=TRUE)
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$Long.Name <- as.character(levels(mergeddata.small$Long.Name))[mergeddata.small$Long.Name]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small$GDP
+class(mergeddata.small$GDP)
+#Question1
+length(mergeddata$CountryCode)
+#Quesion2
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$Long.Name <- as.character(levels(mergeddata.small$Long.Name))[mergeddata.small$Long.Name]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small$GDP
+class(mergeddata.small$GDP)
+#Question1
+length(mergeddata$CountryCode)
+#Quesion2
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+head(me)
+incomeAgg <-aggregate(mergeddata.small.sorted, by=list(IncomeGroup), FUN=mean, na.rm=TRUE)
+edstats <- read.csv("data/getdata_data_EDSTATS_Country.csv")
+#replace empty string with NA
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name","Income.Group")
+mergeddata.small <- mergeddata[mergedcolumns]
+#rename long.name to LongName
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName","Income.Group"="IncomeGroup"))
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$Long.Name <- as.character(levels(mergeddata.small$Long.Name))[mergeddata.small$Long.Name]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small$GDP
+class(mergeddata.small$GDP)
+#Question1
+length(mergeddata$CountryCode)
+#Quesion2
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+#Question3
+incomeAgg <-aggregate(mergeddata.small.sorted, by=list(IncomeGroup), FUN=mean, na.rm=TRUE)
+str(mergeddata.small.sorted)
+incomeAgg <-aggregate(mergeddata.small.sorted, by=list(IncomeGroup), FUN=mean, na.rm=TRUE)
+e]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+incomeAgg <-aggregate(mergeddata.small.sorted, by=list(IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <-aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+str(incomeAgg)
+incomeAgg
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="Mean GDP"))
+warnings()
+incomeAgg
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP"))
+incomeAgg
+incomeAgg <- incomeAgg[with(incomeAgg), order(MeanGDP),]
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP"))
+incomeAgg <- incomeAgg[with(incomeAgg), order(MeanGDP),]
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg <- incomeAgg(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP"))
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP"))
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP"))
+str(incomeAgg)
+incomeAgg
+incomeAgg <- incomeAgg[with(incomeAgg,order("MeanGDP")),]
+incomeAgg
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","GDP")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP"))
+incomeAgg <- incomeAgg[with(incomeAgg,order(MeanGDP)),]
+incomeAgg
+incomeAgg <- incomeAgg[with(incomeAgg,order(-MeanGDP)),]
+incomeAgg
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","Ranking")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="Ranking"))
+incomeAgg <- incomeAgg[with(incomeAgg,order(-Ranking)),]
+incomeAgg <- aggregate(mergeddata.small.sorted, by=list(mergeddata.small.sorted$IncomeGroup), FUN=mean, na.rm=TRUE)
+incomeAgg <- incomeAgg[c("Group.1","Ranking","GDP")]
+incomeAgg <- rename(incomeAgg, c("Group.1"="IncomeGroup","GDP"="MeanGDP","Ranking"="MeanRanking"))
+incomeAgg <- incomeAgg[with(incomeAgg,order(-MeanRanking)),]
+incomeAgg
+incomeAgg <- incomeAgg[with(incomeAgg,order(MeanRanking)),]
+incomeAgg
+library(ggplot2)
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+mergeddata.small.sorted
+head(mergeddata.small.sorted)
+edstats[edstats == ""] <- NA
+#str(edstats)
+#str(GDP.Final)
+mergeddata <- merge( GDP.Final, edstats,by="CountryCode")
+str(mergeddata)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name","Income.Group")
+mergeddata.small <- mergeddata[mergedcolumns]
+#rename long.name to LongName
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName","Income.Group"="IncomeGroup"))
+#Convert ranking from factor to numeric
+mergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]
+mergeddata.small$Long.Name <- as.character(levels(mergeddata.small$Long.Name))[mergeddata.small$Long.Name]
+mergeddata.small$GDP <-gsub(",", "", mergeddata.small$GDP)
+mergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)
+mergeddata.small
+mergeddata.small.sorted <- mergeddata.small[with(mergeddata.small,order(-Ranking)),]
+head(mergeddata.small.sorted)
+mergeddata.small.sorted
+head(mergeddata.small.sorted)
+head(mergeddata.small.sorted)
+mergeddata.small.sorted
+mergeddata.small.sorted
+mergeddata.small.sorted
+ggplot(mergeddata.small.sorted,aes(IncomeGroup,GDP))
+mergeddata.small.sorted)
+ergeddata.small.sorted
+mergeddata.small.sorted
+str(mergeddata.small.sorted)
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName","Income.Group"="IncomeGroup"))
+mergeddata.small <-rename(mergeddata.small, c("Long.Name"="LongName","Income.Group"="IncomeGroup"))
+library(plyr)
+mergedcolumns <- c("CountryCode","Ranking","GDP","Long.Name","Income.Group")
+ggplot(mergeddata.small.sorted,aes(IncomeGroup,GDP))
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_boxplot()
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot()
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="x", stackdir = "center")
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="x", stackdir = "center",binwidth = 100)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="x", stackdir = "center",binwidth = 40)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="x", stackdir = "center",binwidth = 20)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="x", stackdir = "center")
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="x")
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="y")
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="y", binwidth = 20)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="y", binwidth = 25)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="y", binwidth = 25)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binaxis="y", binwidth = 30)
+mergeddata.small.sorted$GDP
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot()
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1.5)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 2)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 4)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1/20)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1/60)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1/10)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1/15)
+ggplot(mergeddata.small.sorted,aes(Income.Group,GDP))+
+geom_dotplot(binwidth = 1/20)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/20)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot()
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/20)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 5)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot()
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/50)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/10)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/10)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/10)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/10)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/5)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/30)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1/30)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot()
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 1.5)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 30)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 30)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 30)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 30)
+ggplot(mergeddata.small.sorted,aes(GDP))+
+geom_dotplot(binwidth = 30)

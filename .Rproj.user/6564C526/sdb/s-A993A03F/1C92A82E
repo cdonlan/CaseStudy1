@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# ---- LoadLib ----\nlibrary(plyr)\n\n# ---- SetPaths ----\nGDPFile <- \"FGDP.raw.csv\"\nEDFile <- \"FEDSTATS_Country.raw.csv\"\n\n# ---- ReadGDP ----\n#load data from CSV files\nGDP <- read.csv(GDPFile)\n\n# ---- RemoveHeaderFooter ----\n#remove header and footer at the bottom of page\nGDP.NHF<- GDP[5:235,]\n\n# ---- RenameColumns ----\n#Update column names\nGDP.NHF.CN <-rename(GDP.NHF, c(\"X\"=\"CountryCode\",\"Gross.domestic.product.2012\" =\"Ranking\"\n                    ,\"X.2\"=\"Country\",\"X.3\"=\"GDP\",\"X.4\" = \"Category\"))\n\n# ---- RemoveNA ----\n#Replace empty strings with NA\nGDP.NHF.CN[GDP.NHF.CN==\"\"] <- NA\n\n#Keep only the columns we need\nGDP.NHF.CN.DC <- GDP.NHF.CN[c(\"CountryCode\",\"Ranking\",\"Country\",\"GDP\",\"Category\")]\n\n#remove rows that do not have rankings\nGDP.Final <- GDP.NHF.CN.DC[!(is.na(GDP.NHF.CN.DC$Ranking)), ]\n\n# ---- EdLoad ----\n#Load Edstats data\nedstats <- read.csv(EDFile)\n\n# ---- EdRemoveNA ----\n#Replace empty string with NA\nedstats[edstats == \"\"] <- NA\n\n# ---- EdGDPMerge ----\n#Merge Data\nmergeddata <- merge( GDP.Final, edstats,by=\"CountryCode\")\n\n# ---- EdRemoveColumns ----\n#Only keep the columns we need\nmergeddata.small <- mergeddata[c(\"CountryCode\",\"Ranking\",\"GDP\",\"Long.Name\",\"Income.Group\")]\n\n# --- EdRenameColumns ---\n#rename long.name and Income.Group to keep consistent\nmergeddata.small <-rename(mergeddata.small, c(\"Long.Name\"=\"LongName\",\"Income.Group\"=\"IncomeGroup\"))\n\n# --- EdConvertColumns ---\n#Convert ranking from factor to numeric\nmergeddata.small$Ranking <- as.numeric(levels(mergeddata.small$Ranking))[mergeddata.small$Ranking]\n\n#Convert LongName from factor to char\nmergeddata.small$LongName <- as.character(levels(mergeddata.small$LongName))[mergeddata.small$LongName]\n\n#Remove commas from GDP\nmergeddata.small$GDP <-gsub(\",\", \"\", mergeddata.small$GDP)\n\n#Convert GDP from factor to numeric\nmergeddata.small$GDP <- as.numeric(mergeddata.small$GDP)\n",
+    "created" : 1477104132176.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "260888840",
+    "id" : "1C92A82E",
+    "lastKnownWriteTime" : 1477770165,
+    "last_content_update" : 1477770165748,
+    "path" : "~/School/IntroDS/Case Study 1/Data/Tidy&Merge.R",
+    "project_path" : "Data/Tidy&Merge.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
