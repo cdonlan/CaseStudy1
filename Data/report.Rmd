@@ -2,7 +2,7 @@
 title: "Case Study 1"
 author: "Chris Donlan"
 date: "October 28, 2016"
-output: html_document
+output: md_document
 ---
 ```{r setup}
   knitr::opts_chunk$set(echo = TRUE,warning=FALSE)
@@ -23,7 +23,7 @@ Note, the libraris are also loaded in the source files. This ensures the files w
 #Gather Data
 * Rather than writing R code directly in the markdown, I choose to use read_chunk, to read in the R code from another source file. I like read_chunk, as it allows you to bring in only the portion of the code you want.
 
-```{r cache=TRUE}
+```{r cache=FALSE}
 knitr::read_chunk('gather.R')
 ```
 * Download the GDP and Education csv files into the data directory
