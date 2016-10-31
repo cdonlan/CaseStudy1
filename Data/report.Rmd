@@ -2,7 +2,9 @@
 title: "Case Study 1"
 author: "Chris Donlan"
 date: "October 28, 2016"
-output: md_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 ```{r setup}
   knitr::opts_chunk$set(echo = TRUE,warning=FALSE)
